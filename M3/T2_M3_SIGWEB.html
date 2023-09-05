@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validasi Password</title>
+</head>
+
+<body>
+    <h1>Validasi Email dan Password</h1>
+    <label for="email">Email:</label><br>
+    <input type="email" id="email"><br>
+    <label for="password">Password:</label><br>
+    <input type="password" id="password"><br>
+    <button onclick="validasi()">validasi</button>
+
+    <div id="result"></div>
+
+    <script>
+        function validasi() {
+            var inputemail = document.getElementById("email").value;
+            var inputpassword = document.getElementById("password").value;
+            var emailbenar = "example@example.com"; // Change this to your desired correct email
+            var passwordbenar = "secret123"; // Change this to your desired correct password
+
+            if (inputemail === emailbenar && inputpassword === passwordbenar) {
+                document.getElementById("result").innerHTML = "Sign-In Succesfully";
+            } else {
+                document.getElementById("result").innerHTML = "Incorrect. Please Check Email and Password";
+                alert("Incorrect. Please Check Email and Password")
+            }
+        }
+    </script>
+</body>
+</html>

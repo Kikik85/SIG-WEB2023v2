@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validasi Nama dan Umur</title>
+</head>
+<body>
+    <h1>Validasi Nama dan Umur</h1>
+    <label for="nama">Nama:</label><br>
+    <input type="text" id="nama"><br>
+    <label for="usia">Usia:</label><br>
+    <input type="number" id="usia"><br>
+    <button onclick="validasi()">validasi!</button>
+
+    <p id="result" style="font-size: 20px; color: white; background-color: red;"></p>
+    <p id="right_result"></p>
+
+    <script>
+        function validasi() {
+            var name = document.getElementById("nama").value;
+            var num = document.getElementById("usia").value;
+
+            if (name === "" || num === "") {
+                alert("Isikan kolom nama atau usia!");
+                document.getElementById("result").innerHTML = "Isikan kolom nama atau usia!";
+            } 
+            else if (name ==="" && num === ""){
+                alert("Isikan kolom nama dan usia!");
+                document.getElementById("result").innerHTML = "Isikan kolom nama atau usia!";
+            } 
+            else if (num == 0 || num <0){
+                alert("Anda Game Over! Isikan Usia dengan rentang di atas nol!");
+                document.getElementById("result").innerHTML = "Anda Game Over!";
+            }
+            else if (num > 0 && num <= 5) {
+                document.getElementById("right_result").innerHTML = "Nama Anda " + name + " dengan usia " + num + " tahun"+ "<b> anda masih bayi</b>";
+            }
+            else if (num <=15 ) {
+                document.getElementById("right_result").innerHTML = "Nama Anda " + name + " dengan usia " + num + " tahun" + "<b> anda masih anak-anak</b>";
+            }
+            else if (num <=30) {
+                document.getElementById("right_result").innerHTML = "Nama Anda " + name + " dengan usia " + num + " tahun" +  "<b> anda masih remaja</b>";
+            }
+            else if (num <=60) {
+                document.getElementById("right_result").innerHTML = "Nama Anda " + name + " dengan usia " + num + " tahun" +  "<b> anda sudah dewasa</b>";
+            }
+            else {
+                document.getElementById("right_result").innerHTML = "Nama Anda " + name + " dengan usia " + num + " tahun" +  "<b> anda sudah lansia</b>";
+            }
+
+            var resultParagraph = document.getElementById("result");
+            var rightResultParagraph = document.getElementById("right_result");
+            if (resultParagraph.style.display === "none") {
+                resultParagraph.style.display = "block";
+                rightResultParagraph.style.display = "none";
+            } else {
+                resultParagraph.style.display = "none";
+                rightResultParagraph.style.display = "block";
+            }
+            
+            
+        }
+    </script>
+    
+    
+</body>
+</html>

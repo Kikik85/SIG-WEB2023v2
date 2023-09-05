@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung Faktorial</title>
+</head>
+
+<body>
+<h1>Perhitungan Faktorial</h1>
+
+    
+<p>Masukkan angka dalam integer: </p>
+<input type="number" id="input_no">
+<button onclick="kalfaktorial()">Hitung!</button>
+<p id="hasil"></p>
+
+<script>
+    function kalfaktorial() {
+        const input = document.getElementById('input_no').value;
+        const num = parseInt(input);
+
+        if (isNaN(num) || num < 0) {
+            document.getElementById('hasil').textContent = 'Please enter a valid number.';
+            return;
+        }
+
+            function rekursive(n) {
+                if (n === 0 || n === 1) {
+                    return 1;
+                } else {
+                    return n * rekursive(n - 1);
+                }
+            }
+
+            const result = rekursive(num);
+            document.getElementById('hasil').textContent = `hasil dari faktorial ${num} adalah ${result}`;
+        }
+    </script>
+</body>
+</html>
+</body>
