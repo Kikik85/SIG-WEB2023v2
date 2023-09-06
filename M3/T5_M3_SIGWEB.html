@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Bilangan Fibonacci</title>
+</head>
+<body>
+    <h1>Kalkulator Bilangan Fibonacci</h1>
+    <p>masukkan angka, perhitungan bilangan fibonacci akan berhenti pada angka yang dimasukkan</p>
+    <label for="inputNumber">masukkan angka:</label>
+    <input type="number" id="inputNumber">
+    <button onclick="calculateFibonacci()">hitung!</button>
+
+    <div id="result"></div>
+
+    <script>
+        function calculateFibonacci() {
+            const inputNumber = parseInt(document.getElementById("inputNumber").value);
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = "";
+
+            if (isNaN(inputNumber) || inputNumber <= 0) {
+                resultDiv.innerHTML = "Please enter a valid positive number.";
+                return;
+            }
+
+            let fib = [0, 1];
+            while (fib[fib.length - 1] <= inputNumber) {
+                const nextFib = fib[fib.length - 1] + fib[fib.length - 2];
+                if (nextFib <= inputNumber) {
+                    fib.push(nextFib);
+                } else {
+                    break;
+                }
+            }
+
+            resultDiv.innerHTML = "Fibonacci sequence up to " + inputNumber + ": " + fib.join(", ");
+        }
+    </script>
+</body>
+</html>
